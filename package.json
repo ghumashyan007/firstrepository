@@ -1,5 +1,5 @@
 {
-  "name": "firstrepository",
+  "name": "pwd",
   "version": "1.0.0",
   "description": "firstrepository",
   "main": "server.js",
@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/ghumashyan007/firstrepository.git"
   },
-  "author": "",
+  "author": "ghumashyan",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ghumashyan007/firstrepository/issues"
