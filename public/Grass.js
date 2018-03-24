@@ -1,6 +1,6 @@
 class Grass extends header {
     constructor(x, y, index) {
-        universal(x, y, index);
+        super(x, y, index);
         this.x = x;
         this.y = y;
         this.energy = 5;
@@ -16,7 +16,7 @@ class Grass extends header {
 
     getDirections(t) {
        
-       return universal.newDirections();
+       return super.newDirections();
 
     }
 

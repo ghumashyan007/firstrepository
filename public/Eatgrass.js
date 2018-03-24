@@ -1,6 +1,6 @@
 class Eatgrass extends header {
     constructor(x, y, index) {
-        universal(x, y, index);
+        super(x, y, index);
         this.x = x;
         this.y = y;
         this.multiply = 0;

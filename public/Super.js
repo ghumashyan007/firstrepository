@@ -1,6 +1,6 @@
-class Super1 {
-    constructor(x, y, ind) {
-        this.index = ind;
+class Super1 extends header {
+    constructor(x, y, index) {
+        super(x, y, index);
         this.x = x;
         this.y = y;
         this.multiply = 0;
@@ -40,40 +40,14 @@ class Super1 {
 
 
     getDirections(t) {
-        this.newDirections();
-        var found = [];
-
-        for (var i in this.directions) {
-            var x = this.directions[i][0];
-            var y = this.directions[i][1];
-            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
-                if (matrix[y][x] == t) {
-                    found.push(this.directions[i]);
-                }
-            }
-        }
-        return found;
+        
+        return universal.getDirections(t);
     }
 
 
-
-
-    move() {
-        var emptyCord = this.getDirections(0);
-        var cord = random(emptyCord);
-
-        if (cord) {
-            var x = cord[0];
-            var y = cord[1];
-
-            matrix[y][x] = 4;
-
-            matrix[this.y][this.x] = 0;
-
-            this.x = x;
-            this.y = y;
-
-        }
+    move(ch) {
+        
+        return universal.getDirections(ch)
     }
 
 
