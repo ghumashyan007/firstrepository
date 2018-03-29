@@ -101,11 +101,7 @@ class Super1 extends header {
                     eatArr.splice(i, 1);
                 }
             }
-            /*if (this.multiply == 20) {
-                this.mul()
-                this.multiply = 0;
-            }
-            */
+            
 
         }
 

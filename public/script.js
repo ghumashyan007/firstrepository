@@ -5,13 +5,13 @@ var eatArr = [];
 var preArr = [];
 var supArr = [];
 var patArr = [];
-var grassCount = 300;
-var eatgrassCount = 700;
-var predatorCount = 500;
-var super1Count = 4;
-var patneshCount = 200;
-var erk = 50;
-var bar = 50;
+var grassCount = 700;
+var eatgrassCount = 400;
+var predatorCount = 100;
+var super1Count = 5;
+var patneshCount = 300;
+var erk = 70;
+var bar = 70;
 
 
 function setup() {
@@ -107,7 +107,11 @@ while(h < patneshCount){
 
 
 function draw() {
-    background('#acacac');
+    text(frameCount, width / 2, height / 2);
+    console.log(frameCount);
+    background('#E1C682');
+
+
     for (var i = 0; i < matrix.length; i++) {
         for (var j = 0; j < matrix[i].length; j++) {
             if (matrix[i][j] == 1) {
@@ -117,14 +121,14 @@ function draw() {
                 fill("orange");
                 rect(j * side, i * side, side, side);
             } else if (matrix[i][j] == 0) {
-                fill('#acacac');
+                fill('#E1C682');
                 rect(j * side, i * side, side, side);
             } else if (matrix[i][j] == 3) {
                 fill("red");
                 rect(j * side, i * side, side, side);
             } else if (matrix[i][j] == 4) {
                 fill('#000000');
-                rect(j * side, i * side, side, side);
+                rect (j * side, i * side, side, side);
             } else if (matrix[i][j] == 5) {
                 fill('#734d26');
                 rect(j * side, i * side, side, side);

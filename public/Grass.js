@@ -23,7 +23,7 @@ class Grass extends header {
 
     mul() {
         this.multiply++;
-        if (this.multiply == 1) {
+        if (this.multiply == 4) {
             var emptyCord = this.getDirections(0);
 
             var cord = random(emptyCord);
