@@ -41,13 +41,13 @@ class Super1 extends header {
 
     getDirections(t) {
         
-        return universal.getDirections(t);
+        return super.getDirections(t);
     }
 
 
     move(ch) {
         
-        return universal.getDirections(ch)
+        return super.getDirections(ch)
     }
 
 
@@ -80,11 +80,7 @@ class Super1 extends header {
                     xotArr.splice(i, 1);
                 }
             }
-            /*if (this.multiply == 20) {
-                this.mul()
-                this.multiply = 0;
-            }
-            */
+            
         }
 
         if (cord2) {
@@ -131,22 +127,13 @@ class Super1 extends header {
                     preArr.splice(i, 1);
                 }
             }
-            /*if (this.multiply == 20) {
-                this.mul()
-                this.multiply = 0;
-            }
-            */
+            
         }
 
 
          else {
             this.move();
-            /*this.energy--;
-            if (this.energy < 3) {
-                this.die();
-                
-            }
-            */
+            
         }
     }
 }

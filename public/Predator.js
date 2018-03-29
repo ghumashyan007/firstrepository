@@ -9,18 +9,18 @@ class Predator extends header {
     }
     newDirections() {
     
-        return universal.newDirections();
+        return super.newDirections();
     }
 
 
     getDirections(t) {
-        return universal.getDirections(t);
+        return super.getDirections(t);
     }
 
 
     move(ch) {
        
-        return universal.getDirections(ch);
+        return super.getDirections(ch);
     }
 
 
@@ -66,7 +66,7 @@ class Predator extends header {
 
     mul(ch) {
         
-        return universal.getDirections(ch);
+        return super.getDirections(ch);
     }
     
     die() {

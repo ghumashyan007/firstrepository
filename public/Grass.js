@@ -10,13 +10,13 @@ class Grass extends header {
 
     newDirections() {
         
-        return universal.newDirections();
+        return super.newDirections();
 
     }
 
     getDirections(t) {
        
-       return super.newDirections();
+       return super.getDirections(t);
 
     }
 

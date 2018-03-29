@@ -4,10 +4,12 @@ var xotArr = [];
 var eatArr = [];
 var preArr = [];
 var supArr = [];
-var grassCount = 1200;
+var patArr = [];
+var grassCount = 300;
 var eatgrassCount = 700;
-var predatorCount = 150;
-var super1Count = 5;
+var predatorCount = 500;
+var super1Count = 4;
+var patneshCount = 200;
 var erk = 50;
 var bar = 50;
 
@@ -24,7 +26,7 @@ var h = 0;
 while(h < grassCount){
     var x = Math.floor(random(0, erk));
     var y = Math.floor(random(0, bar));
-    if(matrix[y][x]==0){
+    if(matrix[y][x] == 0){
         matrix[y][x] = 1;
         h++;
     }
@@ -33,7 +35,7 @@ var h = 0;
 while(h < eatgrassCount){
     var x = Math.floor(random(0, erk));
     var y = Math.floor(random(0, bar));
-    if(matrix[y][x]==0){
+    if(matrix[y][x] == 0){
         matrix[y][x] = 2;
         h++;
     }
@@ -42,7 +44,7 @@ var h = 0;
 while(h < predatorCount){
     var x = Math.floor(random(0, erk));
     var y = Math.floor(random(0, bar));
-    if(matrix[y][x]==0){
+    if(matrix[y][x] == 0){
         matrix[y][x] = 3;
         h++;
     }
@@ -51,12 +53,21 @@ var h = 0;
 while(h < super1Count){
     var x = Math.floor(random(0, erk));
     var y = Math.floor(random(0, bar));
-    if(matrix[y][x]==0){
+    if(matrix[y][x] == 0){
         matrix[y][x] = 4;
         h++;
     }
 }
     
+    var h = 0; 
+while(h < patneshCount){
+    var x = Math.floor(random(0, erk));
+    var y = Math.floor(random(0, bar));
+    if(matrix[y][x] == 0){
+        matrix[y][x] = 5;
+        h++;
+    }
+}
        noStroke()
     frameRate(10);
     createCanvas(matrix[0].length * side, matrix.length * side);
@@ -79,6 +90,10 @@ while(h < super1Count){
             else if (matrix[i][j] == 4){
                 var super1 = new Super1(j, i, 4);                                    
                 supArr.push(super1);
+        }
+          else if (matrix[i][j] == 5){
+                var patnesh = new Patnesh(j, i, 4);                                    
+                patArr.push(patnesh);
         }
     }
 
@@ -109,6 +124,9 @@ function draw() {
                 rect(j * side, i * side, side, side);
             } else if (matrix[i][j] == 4) {
                 fill('#000000');
+                rect(j * side, i * side, side, side);
+            } else if (matrix[i][j] == 5) {
+                fill('#734d26');
                 rect(j * side, i * side, side, side);
             }
         }
