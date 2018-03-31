@@ -32,10 +32,10 @@ for(var i = 0; i < bar; i++){
     fillChars(patneshCount, 5)
 
 
-       noStroke()
+    noStroke()
     frameRate(30);
     createCanvas(matrix[0].length * side, matrix.length * side);
-    background('#acacac');
+    background('#e1d2b7');
 
 
  for (var i = 0; i < matrix.length; i++) {
@@ -54,15 +54,14 @@ for(var i = 0; i < bar; i++){
             else if (matrix[i][j] == 4){
                 var super1 = new Super1(j, i, 4);                                    
                 supArr.push(super1);
-        }
+            }
           else if (matrix[i][j] == 5){
-                var patnesh = new Patnesh(j, i, 4);                                    
+                var patnesh = new Patnesh(j, i, 5);                                    
                 patArr.push(patnesh);
+            }
         }
+
     }
-
-}
-
 
 }
 
@@ -73,48 +72,56 @@ for(var i = 0; i < bar; i++){
 function draw() {
     tacktCount++;
     text(tacktCount, width / 2, height / 2);
-    background('#E1C682');
-
-
-    for (var i = 0; i < matrix.length; i++) {
-        for (var j = 0; j < matrix[i].length; j++) {
-            if (matrix[i][j] == 1) {
-                fill("green");
-                rect(j * side, i * side, side, side);
-            } else if (matrix[i][j] == 2) {
-                fill("orange");
-                rect(j * side, i * side, side, side);
-            } else if (matrix[i][j] == 0) {
-                fill('#E1C682');
-                rect(j * side, i * side, side, side);
-            } else if (matrix[i][j] == 3) {
-                fill("red");
-                rect(j * side, i * side, side, side);
-            } else if (matrix[i][j] == 4) {
-                fill('#000000');
-                rect (j * side, i * side, side, side);
-            } else if (matrix[i][j] == 5) {
-                fill('#734d26');
-                rect(j * side, i * side, side, side);
-            }
-        }
+    
+ var h = document.getElementById("pElement");
+    if (tacktCount < 10) {
+        h.innerText = "Spring " ;
     }
+    else if (tacktCount < 20) {
+        h.innerText = "Summer " ;
+    }
+    else if (tacktCount < 30) {
+        h.innerText = "Autumn " ;
+    }
+    else if (tacktCount < 40) {
+        h.innerText = "Winter " ;
+    }
+    else {
+        tacktCount = 0;
+    }
+
 
 if(tacktCount < 10){
-        gr1Color = "green";
-        dark5Color = "darkgreen";
+        grassColor = "#40a542";
+        eatgrassColor = "#3db5c2";
+        preColor = "#f63f23";
+        supColor = "#1a1a1a";
+        patColor = "#803300";
+        hatakColor = "#e1d2b7";
     }
     else if(tacktCount < 20){
-        gr1Color = "lightgreen";
-        dark5Color = "green";
+        grassColor = "#39933b";
+        eatgrassColor = "#2b7e88";
+        preColor = "#f52f0f";
+        supColor = "#000000";
+        patColor = "#803300";
+        hatakColor = "#e1d2b7";
     }
     else if(tacktCount < 30){
-        gr1Color = "orange";
-        dark5Color = "darkorange";
+        grassColor = "#44c33d";
+        eatgrassColor = "#51bcc8";
+        preColor = "#f1ab27";
+        supColor = "#666666";
+        patColor = "#803300";
+        hatakColor = "#e1d2b7";
     }
     else if(tacktCount < 40){
-        gr1Color = "white";
-        dark5Color = "#DCDDDD";
+        grassColor = "#90c884";
+        eatgrassColor = "#77cbd4";
+        preColor = "#f9716c";
+        supColor = "#a2e19d";
+        patColor = "#ffffff";
+        hatakColor = "#ffffff";
     }
 
 
@@ -125,30 +132,27 @@ if(tacktCount < 10){
             
 
                 if (matrix[i][j] == 1) {
-                    fill(gr1Color);
+                    fill(grassColor);
                     rect(j * side, i * side, side, side);
                 } else if (matrix[i][j] == 2) {
-                    fill("yellow");
+                    fill(eatgrassColor);
                     rect(j * side, i * side, side, side);
                 } else if (matrix[i][j] == 0) {
-                    fill('#8C8C8C');
+                    fill(hatakColor);
                     rect(j * side, i * side, side, side);
                 } else if (matrix[i][j] == 3) {
-                    fill("red");
+                    fill(preColor);
                     rect(j * side, i * side, side, side);
                 }
                 else if (matrix[i][j] == 4) {
-                    fill("blue");
+                    fill(supColor);
                     rect(j * side, i * side, side, side);
                 }
                 else if (matrix[i][j] == 5) {
-                    fill(dark5Color);
+                    fill(patColor);
                     rect(j * side, i * side, side, side);
                 }
-                else if (matrix[i][j] == 6) {
-                    fill("black");
-                    rect(j * side, i * side, side, side);
-                }
+                
            }
       }
 
