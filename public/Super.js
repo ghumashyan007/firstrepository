@@ -1,32 +1,103 @@
-class Super1 extends header {
-    constructor(x, y, index) {
-        super(x, y, index);
+class header {
+    constructor(x, y, index, multiply, eatCount, energy, tiv, number) {
         this.x = x;
         this.y = y;
-        this.multiply = 0;
-        this.eatCount = 0;
-        this.energy = 3;
+        this.multiply = multiply;
+        this.eatCount = eatCount;
+        this.energy = energy;
+        this.tiv = tiv;
+        this.number = number;
+    }
+
+
+    newDirections(ch) {
+        this.directions = [
+            [this.x - 1, this.y - 1],
+            [this.x, this.y - 1],
+            [this.x + 1, this.y - 1],
+            [this.x - 1, this.y],
+            [this.x + 1, this.y],
+            [this.x - 1, this.y + 1],
+            [this.x, this.y + 1],
+            [this.x + 1, this.y + 1]
+        ];       
+    }
+
+
+
+
+    getDirections(t) {
+        this.newDirections();
+        var found = [];
+
+        for (var i in this.directions) {
+            var x = this.directions[i][0];
+            var y = this.directions[i][1];
+            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
+                if (matrix[y][x] == t) {
+                    found.push(this.directions[i]);
+                }
+            }
+        }
+        return found;
 
     }
 
-    newDirections() {
-        this.directions = [
-            [this.x + 2,this.y],
-            [this.x - 2,this.y],
-            [this.x + 2,this.y + 1],
-            [this.x - 2,this.y + 1],
-            [this.x + 2,this.y + 2],    
-            [this.x + 1,this.y + 2],
-            [this.x,this.y + 2],
-            [this.x - 1,this.y + 2],
-            [this.x - 2,this.y + 2],
-            [this.x + 2,this.y - 1],
-            [this.x - 2,this.y - 1],
-            [this.x + 2,this.y - 2],
-            [this.x + 1,this.y - 2],
-            [this.x,this.y - 2],
-            [this.x - 1,this.y - 2],
-            [this.x - 2,this.y - 2],
+
+    move(ch) {
+        var emptyCord = this.getDirections(0);
+        var cord = random(emptyCord);
+
+        if (cord) {
+            var x = cord[0];
+            var y = cord[1];
+
+            matrix[y][x] = this.tiv;
+
+            matrix[this.y][this.x] = 0;
+
+            this.x = x;
+            this.y = y;
+
+        }
+    }
+
+getDirections1(t) {
+        this.newDirections1();
+        var found = [];
+
+        for (var i in this.directions1) {
+            var x = this.directions1[i][0];
+            var y = this.directions1[i][1];
+            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
+                if (matrix[y][x] == t) {
+                    found.push(this.directions1[i]);
+                }
+            }
+        }
+        return found;
+    }
+
+
+
+    newDirections1() {
+        this.directions1 = [
+            [this.x + 2, this.y],
+            [this.x - 2, this.y],
+            [this.x + 2, this.y + 1],
+            [this.x - 2, this.y + 1],
+            [this.x + 2, this.y + 2],
+            [this.x + 1, this.y + 2],
+            [this.x, this.y + 2],
+            [this.x - 1, this.y + 2],
+            [this.x - 2, this.y + 2],
+            [this.x + 2, this.y - 1],
+            [this.x - 2, this.y - 1],
+            [this.x + 2, this.y - 2],
+            [this.x + 1, this.y - 2],
+            [this.x, this.y - 2],
+            [this.x - 1, this.y - 2],
+            [this.x - 2, this.y - 2],
             [this.x - 1, this.y - 1],
             [this.x, this.y - 1],
             [this.x + 1, this.y - 1],
@@ -39,98 +110,6 @@ class Super1 extends header {
     }
 
 
-    getDirections(t) {
-        
-        return super.getDirections(t);
-    }
 
 
-    move(ch) {
-        
-        return super.getDirections(ch)
-    }
-
-
-
-    eat() {
-
-        var emptyCord1 = this.getDirections(1);
-        var emptyCord2 = this.getDirections(2);
-        var emptyCord3 = this.getDirections(3);
-
-        var cord1 = random(emptyCord1);
-        var cord2 = random(emptyCord2);
-        var cord3 = random(emptyCord3);
-
-        if (cord1) {
-            this.multiply++;
-            this.energy++;
-            var x = cord1[0];
-            var y = cord1[1];
-
-            matrix[y][x] = 4;
-            matrix[this.y][this.x] = 0;
-
-            this.x = x;
-            this.y = y;
-        
-
-            for (var i in xotArr) {
-                if (x == xotArr[i].x && y == xotArr[i].y) {
-                    xotArr.splice(i, 1);
-                }
-            }
-            
-        }
-
-        if (cord2) {
-            this.multiply++;
-            this.energy++;
-            var x = cord2[0];
-            var y = cord2[1];
-
-            matrix[y][x] = 4;
-            matrix[this.y][this.x] = 0;
-
-            this.x = x;
-            this.y = y;
-        
-
-            for (var i in eatArr) {
-                if (x == eatArr[i].x && y == eatArr[i].y) {
-                    eatArr.splice(i, 1);
-                }
-            }
-            
-
-        }
-
-        if (cord3) {
-            this.multiply++;
-            this.energy++;
-            var x = cord3[0];
-            var y = cord3[1];
-
-            matrix[y][x] = 4;
-            matrix[this.y][this.x] = 0;
-
-            this.x = x;
-            this.y = y;
-        
-
-            for (var i in preArr) {
-                if (x == preArr[i].x && y == preArr[i].y) {
-                    preArr.splice(i, 1);
-                }
-            }
-            
-        }
-
-
-         else {
-            this.move();
-            
-        }
-    }
 }
-

@@ -1,11 +1,11 @@
 class Grass extends header {
-    constructor(x, y, index) {
+    constructor(x, y, index, multiply, eatCount, energy, tiv, number, name, surname, xArr) {
         super(x, y, index);
         this.x = x;
         this.y = y;
         this.energy = 5;
         this.multiply = 0;
-
+        this.number = 1;
     }
 
     newDirections() {
@@ -21,9 +21,9 @@ class Grass extends header {
     }
 
 
-    mul() {
+     mul() {
         this.multiply++;
-        if (this.multiply == 4) {
+        if (this.multiply == 1) {
             var emptyCord = this.getDirections(0);
 
             var cord = random(emptyCord);
@@ -39,7 +39,5 @@ class Grass extends header {
             }
         }
     }
-
-
 
 }

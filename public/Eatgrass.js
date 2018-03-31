@@ -1,12 +1,13 @@
 class Eatgrass extends header {
-    constructor(x, y, index) {
+    constructor(x, y, index, multiply, eatCount, energy, tiv, number) {
         super(x, y, index);
         this.x = x;
         this.y = y;
         this.multiply = 0;
         this.eatCount = 0;
         this.energy = 3;
-
+        this.tiv = 2;
+        this.number = 2;
     }
 
     newDirections() {
@@ -23,7 +24,7 @@ class Eatgrass extends header {
 
     move(ch) {
        
-       return super.getDirections(ch)
+       return super.move(ch)
     }
 
 
@@ -67,7 +68,7 @@ class Eatgrass extends header {
         }
     }
 
-   mul() {
+    mul() {
         var emptyCord = this.getDirections(0);
         var cord = random(emptyCord);
         
@@ -81,7 +82,7 @@ class Eatgrass extends header {
             var norXotaker = new Eatgrass(x, y, this.index);
             eatArr.push(norXotaker);
 
-            matrix[y][x] = 2;
+            matrix[y][x] = 1;
             this.multiply = 0;
         }
     }

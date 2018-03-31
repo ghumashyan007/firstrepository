@@ -1,12 +1,13 @@
-var tiv = 3;
 class Predator extends header {
-    constructor(x, y, index) {
+    constructor(x, y, index, multiply, eatCount, energy, tiv, number) {
         super(x, y, index);
         this.x = x;
         this.y = y;
         this.multiply = 0;
         this.eatCount = 0;
-        this.energy = 40;
+        this.energy = 60;
+        this.tiv = 3;
+        this.number = 3;
     }
     newDirections() {
     
@@ -19,22 +20,10 @@ class Predator extends header {
     }
 
 
-   move() {
-        var emptyCord = this.getDirections(0);
-        var cord = random(emptyCord);
-
-        if (cord) {
-            var x = cord[0];
-            var y = cord[1];
-
-            matrix[y][x] = 3;
-
-            matrix[this.y][this.x] = 0;
-
-            this.x = x;
-            this.y = y;
-
-        }
+   
+    move(ch) {
+        
+        return super.move(ch)
     }
 
 
@@ -78,9 +67,22 @@ class Predator extends header {
         }
     }
 
-    mul(ch) {
-        
-        return super.getDirections(ch);
+   mul() {
+        var emptyCord = this.getDirections(0);
+
+        var cord = random(emptyCord);
+        if (cord) {
+            var x = cord[0];
+            var y = cord[1];
+
+            this.multiply++;
+
+            var norpredator = new Predator(x, y, this.index);
+            preArr.push(norpredator);
+
+            matrix[y][x] = 3;
+            this.multiply = 0;
+        }
     }
     
     die() {

@@ -12,6 +12,7 @@ var super1Count = 5;
 var patneshCount = 300;
 var erk = 70;
 var bar = 70;
+var tacktCount = 0;
 
 
 function setup() {
@@ -22,54 +23,17 @@ for(var i = 0; i < bar; i++){
             matrix[i][j] = 0;
         }
     }
-var h = 0; 
-while(h < grassCount){
-    var x = Math.floor(random(0, erk));
-    var y = Math.floor(random(0, bar));
-    if(matrix[y][x] == 0){
-        matrix[y][x] = 1;
-        h++;
-    }
-}
-var h = 0; 
-while(h < eatgrassCount){
-    var x = Math.floor(random(0, erk));
-    var y = Math.floor(random(0, bar));
-    if(matrix[y][x] == 0){
-        matrix[y][x] = 2;
-        h++;
-    }
-}
-var h = 0; 
-while(h < predatorCount){
-    var x = Math.floor(random(0, erk));
-    var y = Math.floor(random(0, bar));
-    if(matrix[y][x] == 0){
-        matrix[y][x] = 3;
-        h++;
-    }
-}
-var h = 0; 
-while(h < super1Count){
-    var x = Math.floor(random(0, erk));
-    var y = Math.floor(random(0, bar));
-    if(matrix[y][x] == 0){
-        matrix[y][x] = 4;
-        h++;
-    }
-}
     
-    var h = 0; 
-while(h < patneshCount){
-    var x = Math.floor(random(0, erk));
-    var y = Math.floor(random(0, bar));
-    if(matrix[y][x] == 0){
-        matrix[y][x] = 5;
-        h++;
-    }
-}
+
+    fillChars(grassCount, 1);
+    fillChars(eatgrassCount, 2)
+    fillChars(predatorCount, 3)
+    fillChars(super1Count, 4)
+    fillChars(patneshCount, 5)
+
+
        noStroke()
-    frameRate(10);
+    frameRate(30);
     createCanvas(matrix[0].length * side, matrix.length * side);
     background('#acacac');
 
@@ -107,8 +71,8 @@ while(h < patneshCount){
 
 
 function draw() {
-    text(frameCount, width / 2, height / 2);
-    console.log(frameCount);
+    tacktCount++;
+    text(tacktCount, width / 2, height / 2);
     background('#E1C682');
 
 
@@ -136,6 +100,60 @@ function draw() {
         }
     }
 
+if(tacktCount < 10){
+        gr1Color = "green";
+        dark5Color = "darkgreen";
+    }
+    else if(tacktCount < 20){
+        gr1Color = "lightgreen";
+        dark5Color = "green";
+    }
+    else if(tacktCount < 30){
+        gr1Color = "orange";
+        dark5Color = "darkorange";
+    }
+    else if(tacktCount < 40){
+        gr1Color = "white";
+        dark5Color = "#DCDDDD";
+    }
+
+
+
+    for (var i = 0; i < matrix.length; i++) {
+        for (var j = 0; j < matrix[i].length; j++) {
+
+            
+
+                if (matrix[i][j] == 1) {
+                    fill(gr1Color);
+                    rect(j * side, i * side, side, side);
+                } else if (matrix[i][j] == 2) {
+                    fill("yellow");
+                    rect(j * side, i * side, side, side);
+                } else if (matrix[i][j] == 0) {
+                    fill('#8C8C8C');
+                    rect(j * side, i * side, side, side);
+                } else if (matrix[i][j] == 3) {
+                    fill("red");
+                    rect(j * side, i * side, side, side);
+                }
+                else if (matrix[i][j] == 4) {
+                    fill("blue");
+                    rect(j * side, i * side, side, side);
+                }
+                else if (matrix[i][j] == 5) {
+                    fill(dark5Color);
+                    rect(j * side, i * side, side, side);
+                }
+                else if (matrix[i][j] == 6) {
+                    fill("black");
+                    rect(j * side, i * side, side, side);
+                }
+           }
+      }
+
+
+
 
     for (var i in xotArr) {
         xotArr[i].mul();
@@ -155,6 +173,19 @@ function draw() {
 }
 
 
+
+
+function fillChars(charCount, charType) {
+    var h = 0;
+    while (h < charCount) {
+        var x = Math.floor(random(0, erk));
+        var y = Math.floor(random(0, bar));
+        if (matrix[y][x] == 0) {
+            matrix[y][x] = charType;
+            h++;
+        }
+    }
+}
 
 
 
