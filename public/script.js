@@ -10,9 +10,9 @@ var eatgrassCount = 400;
 var predatorCount = 100;
 var super1Count = 5;
 var patneshCount = 300;
-var erk = 70;
-var bar = 70;
-var tacktCount = 0;
+var erk = 80;
+var bar = 80;
+var frameCount = 0;
 
 
 function setup() {
@@ -24,16 +24,14 @@ for(var i = 0; i < bar; i++){
         }
     }
     
-
     fillChars(grassCount, 1);
     fillChars(eatgrassCount, 2)
     fillChars(predatorCount, 3)
     fillChars(super1Count, 4)
     fillChars(patneshCount, 5)
 
-
     noStroke()
-    frameRate(30);
+    frameRate(60);
     createCanvas(matrix[0].length * side, matrix.length * side);
     background('#e1d2b7');
 
@@ -60,38 +58,35 @@ for(var i = 0; i < bar; i++){
                 patArr.push(patnesh);
             }
         }
-
     }
-
 }
 
-   
 
 
 
 function draw() {
-    tacktCount++;
-    text(tacktCount, width / 2, height / 2);
+    frameCount++;
+    text(frameCount, width / 2, height / 2);
     
  var h = document.getElementById("pElement");
-    if (tacktCount < 10) {
+    if (frameCount < 15) {
         h.innerText = "Spring " ;
     }
-    else if (tacktCount < 20) {
+    else if (frameCount < 30) {
         h.innerText = "Summer " ;
     }
-    else if (tacktCount < 30) {
+    else if (frameCount < 45) {
         h.innerText = "Autumn " ;
     }
-    else if (tacktCount < 40) {
+    else if (frameCount < 60) {
         h.innerText = "Winter " ;
     }
     else {
-        tacktCount = 0;
+        frameCount = 0;
     }
 
 
-if(tacktCount < 10){
+if(frameCount < 15){
         grassColor = "#40a542";
         eatgrassColor = "#3db5c2";
         preColor = "#f63f23";
@@ -99,7 +94,7 @@ if(tacktCount < 10){
         patColor = "#803300";
         hatakColor = "#e1d2b7";
     }
-    else if(tacktCount < 20){
+    else if(frameCount < 30){
         grassColor = "#39933b";
         eatgrassColor = "#2b7e88";
         preColor = "#f52f0f";
@@ -107,7 +102,7 @@ if(tacktCount < 10){
         patColor = "#803300";
         hatakColor = "#e1d2b7";
     }
-    else if(tacktCount < 30){
+    else if(frameCount < 45){
         grassColor = "#44c33d";
         eatgrassColor = "#51bcc8";
         preColor = "#f1ab27";
@@ -115,7 +110,7 @@ if(tacktCount < 10){
         patColor = "#803300";
         hatakColor = "#e1d2b7";
     }
-    else if(tacktCount < 40){
+    else if(frameCount < 60){
         grassColor = "#90c884";
         eatgrassColor = "#77cbd4";
         preColor = "#f9716c";
@@ -127,10 +122,7 @@ if(tacktCount < 10){
 
 
     for (var i = 0; i < matrix.length; i++) {
-        for (var j = 0; j < matrix[i].length; j++) {
-
-            
-
+        for (var j = 0; j < matrix[i].length; j++) { 
                 if (matrix[i][j] == 1) {
                     fill(grassColor);
                     rect(j * side, i * side, side, side);
@@ -152,11 +144,8 @@ if(tacktCount < 10){
                     fill(patColor);
                     rect(j * side, i * side, side, side);
                 }
-                
            }
       }
-
-
 
 
     for (var i in xotArr) {
@@ -175,8 +164,6 @@ if(tacktCount < 10){
         supArr[i].eat();
     }
 }
-
-
 
 
 function fillChars(charCount, charType) {
