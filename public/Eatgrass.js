@@ -4,7 +4,7 @@ class Eatgrass extends header {
         this.x = x;
         this.y = y;
         this.multiply = 0;
-        this.eatCount = 0;
+        this.eatCount = 0; 
         this.energy = 3;
         this.tiv = 2;
         this.number = 2;

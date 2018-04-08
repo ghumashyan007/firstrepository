@@ -302,7 +302,7 @@ function changeView(stat) {
     mulgrass.innerHTML = stat.mulgrass;
     muleatgrass.innerHTML = stat.muleatgrass;
     mulpredator.innerHTML = stat.mulpredator;
-    dieeatgrass.innerHTML = stat.dieeatgrass;
+    dieeatgrass.innerHTML = stat.dieeatgrass; 
     diepredator.innerHTML = stat.diepredator;
 }
 
