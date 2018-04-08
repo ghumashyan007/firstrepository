@@ -1,7 +1,7 @@
 var fs = require('fs');  //ֆայլերի մեջ գրել և կարդալու համար
 var express = require('express'); //սերվեր
 var app = express();
-var server = require('http').Server(app);
+var server = require('http').Server(app);  
 var io = require('socket.io')(server);
 var statData = []; //ստատիստիկան պահպանող օբյեկտների զանգվածը
 
