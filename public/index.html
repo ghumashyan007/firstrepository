@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf8">
     <link rel="stylesheet" href="style.css">
-    <script src="super.js"></script>
+    <script src="/socket/socket.io.js"></script>
+    <script src="Super.js"></script>
     <script src="p5.js"></script>
     <script src="script.js"></script>
     <script src="Grass.js"></script>
@@ -15,10 +16,73 @@
 </head>
 
 <body>
-    <h1 id="pElement">Weather</h1>
+    <div id="div222">
+        <h1>Game Of Life</h1>
+        <button id="myBtn"><pre>Data (Տվյալներ)</pre></button>
+
+
+<p id="demo"></p>
+    </div>
     <div id="div">
+        <h1 id="pElement">Weather</h1>
+        <pre id="preElement"><strong>   Խոտ           Խոտակեր      Գիշատիչ     Super կենդանի    Պատնեշ</strong></pre>
+        <div id="div1"></div>
+        <div id="div2"></div>
+        <div id="div3"></div>
+        <div id="div4"></div>
+        <div id="div5"></div>
+         <h2>Ստատիստիկա</h2>
+         <div id="whitetext">Այս սեսիայի ստատիստիկան
+            <table id="t1">
+                <tr>
+                    <td>Ուտել Խոտակեր</td>
+                    <td id="eateatgrass">0</td>
+                </tr>
+                <tr>
+                    <td>Ուտել գիշատիչ</td>
+                    <td id="eatpredator">0</td>
+                </tr>
+                <tr>
+                    <td>Ուտել Սուպեր</td>
+                    <td id="eatsuper">0</td>
+                </tr>
+                <tr>
+                    <td>բազմանալ խոտ</td>
+                    <td id="mulgrass">0</td>
+                </tr>
+                <tr>
+                    <td>բազմանալ խոտակեր</td>
+                    <td id="muleatgrass">0</td>
+                </tr>
+                <tr>
+                    <td>բազմանալ գիշատիչ</td>
+                    <td id="mulpredator">0</td>
+                </tr>
+                <tr>
+                    <td>բազմանալ խոտակեր</td>
+                    <td id="dieeatgrass">0</td>
+                </tr>
+                <tr>
+                    <td>բազմանալ գիշատիչ</td>
+                    <td id="diepredator">0</td>
+                </tr>
+            </table>
+<br><br>
+            <p>Ընդհանուր ստատիստիկան տես
+                <button>
+                    <a href="stats.html" style="color:#003333;">այստեղ</a>
+                </button>
+            </p>
+        </div>
+
+
+
 
     </div>
+
+   
+
+
 </body>
 
 </html>

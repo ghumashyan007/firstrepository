@@ -46,7 +46,8 @@ class Eatgrass extends header {
 
             this.x = x;
             this.y = y;
-
+            statistics.eateatgrass++;
+                changeView(statistics);
 
             for (var i in xotArr) {
                 if (x == xotArr[i].x && y == xotArr[i].y) {
@@ -56,6 +57,7 @@ class Eatgrass extends header {
             if (this.multiply == 4) {
                 this.mul()
                 this.multiply = 0;
+                
             }
 
         } else {
@@ -63,6 +65,8 @@ class Eatgrass extends header {
             this.energy--;
             if (this.energy < 3) {
                 this.die();
+                statistics.dieeatgrass++;
+                changeView(statistics);
                 //this.energy = 10;
             }
         }
@@ -84,6 +88,9 @@ class Eatgrass extends header {
 
             matrix[y][x] = 1;
             this.multiply = 0;
+
+            statistics.muleatgrass++;
+                changeView(statistics);
         }
     }
 

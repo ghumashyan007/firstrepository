@@ -2,20 +2,88 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: #1f5d7a;
+    background-color: #003333;
     justify-content: center;
-    display: flex;
     align-items: center;
 }
 
 
-#pElement {
-    align:center
+#div {
+    background-color:#006666;
+    border:2px solid black;
+    width:600px;
+    height:780px;
+    margin:0px 15px 15px 15px;
+    text-align: center;
+    padding: 10px;
+    float:left;
 }
 
-#div {
+
+#div222{
+    background-color:#006666;
+    text-align: center;
+    width:1000px;
+    height:170px;
     border:2px solid black;
-    width:300px;
-    height:800px;
-    align:
+    margin: auto auto 10px auto;
+
+    
+}
+
+#div1 {
+    background-color:#40a542;
+    width:70px;
+    height:70px;
+    float:left;
+    margin:0px 5px 80px 3px;    
+}
+
+
+#div2 {
+    background-color: #3db5c2;
+    width:70px;
+    height:70px;
+    float:left;
+    margin:0px 25px 80px 50px;
+}
+ 
+ #div3 {
+    background-color:#f63f23;
+    width:70px;
+    height:70px;
+    float:left;
+    margin:0px 25px 80px 25px;
+}
+
+#div4 {
+    background-color:#1a1a1a;
+    width:70px;
+    height:70px;
+    float:left;
+    margin:0px 25px 80px 25px;
+}
+
+#div5 {
+    background-color:#803300;
+    width:70px;
+    height:70px;
+    float:left;
+    margin:0px 0px 80px 25px;
+}
+
+#div pre {
+    text-align: left;
+}
+
+#defaultCanvas0{
+   
+   border:2px solid black;
+}
+
+#myBtn{
+    background-color:##009999; 
+}
+#t1{
+    border:2px solid black;
 }

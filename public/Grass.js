@@ -36,6 +36,8 @@ class Grass extends header {
 
                 matrix[y][x] = 1;
                 this.multiply = 0;
+                statistics.mulgrass++;
+                changeView(statistics);
             }
         }
     }

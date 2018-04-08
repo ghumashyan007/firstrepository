@@ -45,16 +45,21 @@ class Predator extends header {
 
             this.x = x;
             this.y = y;
+            statistics.eatpredator++;
+                changeView(statistics);
 
 
             for (var i in eatArr) {
                 if (x == eatArr[i].x && y == eatArr[i].y) {
                     eatArr.splice(i, 1);
+                    statistics.dieeatgrass++;
+                changeView(statistics);
                 }
             }
             if (this.multiply == 5) {
                 this.mul()
                 this.multiply = 0;
+
             }
 
         } else {
@@ -62,7 +67,8 @@ class Predator extends header {
             this.energy--;
             if (this.energy < 3) {
                 this.die();
-                
+                statistics.diepredator++;
+                changeView(statistics);
             }
         }
     }
@@ -82,6 +88,8 @@ class Predator extends header {
 
             matrix[y][x] = 3;
             this.multiply = 0;
+            statistics.mulpredator++;
+                changeView(statistics);
         }
     }
     

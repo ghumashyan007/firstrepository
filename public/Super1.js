@@ -72,7 +72,8 @@ class Super1 extends header {
 
             this.x = x;
             this.y = y;
-        
+            statistics.eatsuper++;
+                changeView(statistics);
 
             for (var i in xotArr) {
                 if (x == xotArr[i].x && y == xotArr[i].y) {
@@ -93,7 +94,8 @@ class Super1 extends header {
 
             this.x = x;
             this.y = y;
-        
+            statistics.eatsuper++;
+            changeView(statistics);
 
             for (var i in eatArr) {
                 if (x == eatArr[i].x && y == eatArr[i].y) {
@@ -115,7 +117,9 @@ class Super1 extends header {
 
             this.x = x;
             this.y = y;
-        
+            statistics.eatsuper++;
+            changeView(statistics);
+
 
             for (var i in preArr) {
                 if (x == preArr[i].x && y == preArr[i].y) {
