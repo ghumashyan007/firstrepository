@@ -80,7 +80,7 @@ for(var i = 0; i < bar; i++){
 function draw() {
     frameCount++;
     text(frameCount, width / 2, height / 2);
-    time.innerText = (new Date()).toString();
+    
     
  var h = document.getElementById("pElement");
     if (frameCount < 15) {

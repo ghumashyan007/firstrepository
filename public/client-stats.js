@@ -11,7 +11,7 @@ setInterval(function () {
 socket.on("send stats", function (statistics) {
     //Պատրսատում ենք աղյուսակը
     statistics = JSON.parse(statistics);
-    table.innerHTML = "";
+    table.innerHTML = "Ստատիստիկա";
     tableHTML = "<tr><td>Ժամանակ</td><td>Ուտել Խոտակեր</td><td>Ուտել գիշատիչ</td><td>Ուտել super</td><td>բազմանալ խոտ</td><td>Բազմանալ խոտակեր</td><td>Բազմանալ գիշատիչ</td><td>Մահանալ խոտակեր</td><td>Մահանալ գիշատիչ</td></tr>";
     for (var st of statistics) {
         tableHTML += "<tr>";
