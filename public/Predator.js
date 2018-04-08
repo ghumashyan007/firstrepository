@@ -46,14 +46,13 @@ class Predator extends header {
             this.x = x;
             this.y = y;
             statistics.eatpredator++;
-                changeView(statistics);
+            changeView(statistics);
 
 
             for (var i in eatArr) {
                 if (x == eatArr[i].x && y == eatArr[i].y) {
                     eatArr.splice(i, 1);
-                    statistics.dieeatgrass++;
-                changeView(statistics);
+                    break;
                 }
             }
             if (this.multiply == 5) {
@@ -98,6 +97,7 @@ class Predator extends header {
         for (var i in preArr) {
             if (this.x == preArr[i].x && this.y == preArr[i].y) {
                 preArr.splice(i, 1);
+                break;
             }
         }
     }

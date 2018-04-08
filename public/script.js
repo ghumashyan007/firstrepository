@@ -1,3 +1,4 @@
+var socket = io.connect('http://localhost:8080');
 var matrix = []
 var side = 10;
 var xotArr = [];
@@ -9,11 +10,10 @@ var grassCount = 700;
 var eatgrassCount = 400;
 var predatorCount = 100;
 var super1Count = 5;
-var patneshCount = 300;
+var patneshCount = 350;
 var erk = 80;
 var bar = 80;
-var frameCount = 0;
-var weather = "   Խոտ             Խոտակեր          Գիշատիչ       Super կենդանի       Պատնեշ";
+var frCount = 0;
 var statistics = {
     "timestamp": "",
     "eateatgrass": 0,
@@ -75,31 +75,31 @@ for(var i = 0; i < bar; i++){
 }
 
 
-
-
 function draw() {
-    frameCount++;
-    text(frameCount, width / 2, height / 2);
-    
-    
+    frCount++;
+   
+    statistics.timestamp.innerText = (new Date()).toString();
+    if(frCount >= 5){
+        
+    }
  var h = document.getElementById("pElement");
-    if (frameCount < 15) {
+    if (frCount < 15) {
         h.innerText = "Spring (ԳԱՐՈՒՆ Է)" ;
     }
-    else if (frameCount < 30) {
+    else if (frCount < 30) {
         h.innerText = "Summer (ԱՄԱՌ Է)" ;
     }
-    else if (frameCount < 45) {
+    else if (frCount < 45) {
         h.innerText = "Autumn (ԱՇՈՒՆ Է)" ;
     }
-    else if (frameCount < 60) {
+    else if (frCount < 60) {
         h.innerText = "Winter (ՁՄԵՌ Է)" ;
     }
     else  {   
-        frameCount = 0;
+        frCount = 0;
     }
 
-console.log(frameCount)
+console.log(frCount)
 
 
 
@@ -112,74 +112,74 @@ console.log(frameCount)
 
 
 var d1 = document.getElementById("div1");
-    if (frameCount < 15) {
+    if (frCount < 15) {
         d1.style.backgroundColor= "#40a542";
     }
-    else if (frameCount < 30) {
+    else if (frCount < 30) {
        d1.style.backgroundColor = "#39933b";
     }
-    else if (frameCount < 45) {
+    else if (frCount < 45) {
         d1.style.backgroundColor = "#44c33d";
     }
-    else if (frameCount < 60) {
+    else if (frCount < 60) {
         d1.style.backgroundColor = "#90c884";
     }
    
 
 var d2 = document.getElementById("div2");
-    if (frameCount < 15) {
+    if (frCount < 15) {
         d2.style.backgroundColor= "#3db5c2";
     }
-    else if (frameCount < 30) {
+    else if (frCount < 30) {
        d2.style.backgroundColor = "#2b7e88";
     }
-    else if (frameCount < 45) {
+    else if (frCount < 45) {
         d2.style.backgroundColor = "#51bcc8";
     }
-    else if (frameCount < 60) {
+    else if (frCount < 60) {
         d2.style.backgroundColor = "#77cbd4";
     }
     
 var d3 = document.getElementById("div3");
-    if (frameCount < 15) {
+    if (frCount < 15) {
         d3.style.backgroundColor= "#f63f23";
     }
-    else if (frameCount < 30) {
+    else if (frCount < 30) {
        d3.style.backgroundColor = "#f52f0f";
     }
-    else if (frameCount < 45) {
+    else if (frCount < 45) {
         d3.style.backgroundColor = "#f1ab27";
     }
-    else if (frameCount < 60) {
+    else if (frCount < 60) {
         d3.style.backgroundColor = "#f9716c";
     }
     
 var d4 = document.getElementById("div4");
-    if (frameCount < 15) {
+    if (frCount < 15) {
         d4.style.backgroundColor= "#1a1a1a";
     }
-    else if (frameCount < 30) {
+    else if (frCount < 30) {
        d4.style.backgroundColor = "#000000";
     }
-    else if (frameCount < 45) {
+    else if (frCount < 45) {
         d4.style.backgroundColor = "#666666";
     }
-    else if (frameCount < 60) {
+    else if (frCount < 60) {
         d4.style.backgroundColor = "#a2e19d";
     }
    
 
 var d5 = document.getElementById("div5");
-    if (frameCount < 15) {
+    if (frCount < 15) {
         d5.style.backgroundColor= "#803300";
     }
-    else if (frameCount < 30) {
+    else if (frCount < 30) {
        d5.style.backgroundColor = "#803300";
     }
-    else if (frameCount < 45) {
+    else if (frCount < 45) {
         d5.style.backgroundColor = "#803300";
     }
-    else if (frameCount < 60) {
+    else if (frCount < 60) {
         d5.style.backgroundColor = "#ffffff";
     }
     
@@ -189,7 +189,7 @@ var d5 = document.getElementById("div5");
 
 
 
-if(frameCount < 15){
+if(frCount < 15){
         grassColor = "#40a542";
         eatgrassColor = "#3db5c2";
         preColor = "#f63f23";
@@ -197,7 +197,7 @@ if(frameCount < 15){
         patColor = "#803300";
         hatakColor = "#e1d2b7";
     }
-    else if(frameCount < 30){
+    else if(frCount < 30){
         grassColor = "#39933b";
         eatgrassColor = "#2b7e88";
         preColor = "#f52f0f";
@@ -205,7 +205,7 @@ if(frameCount < 15){
         patColor = "#803300";
         hatakColor = "#e1d2b7";
     }
-    else if(frameCount < 45){
+    else if(frCount < 45){
         grassColor = "#44c33d";
         eatgrassColor = "#51bcc8";
         preColor = "#f1ab27";
@@ -213,7 +213,7 @@ if(frameCount < 15){
         patColor = "#803300";
         hatakColor = "#e1d2b7";
     }
-    else if(frameCount < 60){
+    else if(frCount < 60){
         grassColor = "#90c884";
         eatgrassColor = "#77cbd4";
         preColor = "#f9716c";
@@ -266,7 +266,7 @@ if(frameCount < 15){
     for (var i in supArr){
         supArr[i].eat();
     }
-    statistics.frameCount = frameCount;
+    statistics.frCount = frCount;
     statistics.timestamp = (new Date()).toString();
     socket.emit("send data", statistics);
 

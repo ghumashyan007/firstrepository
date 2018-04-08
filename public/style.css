@@ -23,8 +23,8 @@ body {
 #div222{
     background-color:#006666;
     text-align: center;
-    width:1000px;
-    height:170px;
+    width:1300px;
+    height:160px;
     border:2px solid black;
     margin: auto auto 10px auto;
 
@@ -86,4 +86,11 @@ body {
 }
 #t1{
     border:2px solid black;
+}
+
+table, tr, td{
+    border: solid 1.5px #0d0d0d;
+    border-collapse: collapse;
+    padding:5px;
+    margin-top:10px;
 }

@@ -1,11 +1,11 @@
-var socket = io.connect('http://localhost:3000');
+var socket = io.connect('http://localhost:8080');
 var table = document.getElementById("statistics");
 
 //Ամեն 10000 մլվրկ֊ը մեկ
 setInterval(function () {
     //ուղարկում ենք "get stats" հացրումը սերվերին
     socket.emit("get stats", []);
-}, 3000);
+}, 8080);
 
 //Երբ սերվերը ուղարկում է տվյալ "send stats" պիտակով
 socket.on("send stats", function (statistics) {

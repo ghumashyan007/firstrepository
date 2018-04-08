@@ -78,6 +78,8 @@ class Super1 extends header {
             for (var i in xotArr) {
                 if (x == xotArr[i].x && y == xotArr[i].y) {
                     xotArr.splice(i, 1);
+
+                break;
                 }
             }
             
@@ -100,6 +102,7 @@ class Super1 extends header {
             for (var i in eatArr) {
                 if (x == eatArr[i].x && y == eatArr[i].y) {
                     eatArr.splice(i, 1);
+                    break;
                 }
             }
             
@@ -124,6 +127,7 @@ class Super1 extends header {
             for (var i in preArr) {
                 if (x == preArr[i].x && y == preArr[i].y) {
                     preArr.splice(i, 1);
+                    break;
                 }
             }
             

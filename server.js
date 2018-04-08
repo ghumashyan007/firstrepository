@@ -26,7 +26,9 @@ app.get('/stats', function (req, res) {
     res.redirect('stats.html');
 });
 
-server.listen(3000);
+server.listen(8080,function(){
+    console.log("Example is running on port 8080");
+});
 
 io.on('connection', function (socket) {
     socket.on("send data", function (data) {
